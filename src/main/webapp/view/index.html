@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+	    <title>CRM</title>
+	    <#include "inc/ext.htm">
+	    <style type="text/css">
+			html, body {
+		        font:normal 12px verdana;
+		        margin:0;
+		        padding:0;
+		        border:0 none;
+		        overflow:hidden;
+		        height:100%;
+		    }
+			.x-panel-body p {
+			    margin:5px;
+			}
+		    .x-column-layout-ct .x-panel {
+		        margin-bottom:5px;
+		    }
+		    .x-column-layout-ct .x-panel-dd-spacer {
+		        margin-bottom:5px;
+		    }
+		    .settings {
+		        background-image:url(${path}/ext-3.4.1/shared/icons/fam/folder_wrench.png) !important;
+		    }
+		    .nav {
+		        background-image:url(${path}/ext-3.4.1/shared/icons/fam/folder_go.png) !important;
+		    }
+	    </style>
+	</head>
+	<body>
+		<div id="header"><div style="float:left;margin:10px;" class="x-small-editor"><h6>crm</h6></div></div>
+		<script type="text/javascript">
+		    Ext.onReady(function(){
+		       Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+		
+		       var viewport = new Ext.Viewport({
+		            layout:'border',
+		            items:[ 
+		            new Ext.BoxComponent({ // raw
+		                region:'north',
+		                el: 'header',
+		                height:35
+		            }),{
+		                region:'west',
+		                id:'west-panel',
+		                title:'导航',
+		                split:true,
+		                width: 200,
+		                minSize: 175,
+		                maxSize: 400,
+		                collapsible: true,
+		                margins:'0 0 5 5',
+		                cmargins:'0 5 5 5',
+		                layout:'accordion',
+		                layoutConfig:{
+		                    animate:true
+		                },
+		                items: [{
+		                    html: '<p>部门管理</p><p>用户管理</p><p>角色管理</p><p>模块管理</p>',
+		                    title:'权限管理',
+		                    autoScroll:true,
+		                    border:false,
+		                    iconCls:'nav'
+		                },{
+		                    title:'基本设置',
+		                    html: '<p>数据字典</p><p>连接池监控</p>',
+		                    border:false,
+		                    autoScroll:true,
+		                    iconCls:'settings'
+		                }]
+		            },{
+		                region:'center',
+		                margins:'0 5 5 0',
+		                layout:'column',
+		                autoScroll:true,
+		                items:[{
+		                    columnWidth:.33,
+		                    baseCls:'x-plain',
+		                    bodyStyle:'padding:5px 0 5px 5px',
+		                    items:[{
+		                        title: 'A Panel',
+		                        html: '<p>部门管理</p><p>用户管理</p><p>角色管理</p><p>模块管理</p>'
+		                    }]
+		                },{
+		                    columnWidth:.33, 
+		                    baseCls:'x-plain',
+		                    bodyStyle:'padding:5px 0 5px 5px',
+		                    items:[{
+		                        title: 'A Panel',
+		                        html: '<p>部门管理</p><p>用户管理</p><p>角色管理</p><p>模块管理</p>'
+		                    }]
+		                },{
+		                    columnWidth:.33,
+		                    baseCls:'x-plain',
+		                    bodyStyle:'padding:5px',
+		                    items:[{
+		                        title: 'A Panel',
+		                        html:'<p>部门管理</p><p>用户管理</p><p>角色管理</p><p>模块管理</p>'
+		                    },{
+		                        title: 'Another Panel',
+		                        html: '<p>部门管理</p><p>用户管理</p><p>角色管理</p><p>模块管理</p>'
+		                    }]
+		                }]
+		            }]
+		        });
+		    });
+		</script>
+	</body>
+</html>
