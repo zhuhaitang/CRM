@@ -9,9 +9,9 @@ public class Dept {
 
     private String name;
 
-    private String parentid;
-
     private String type;
+
+    private String parentid;
 
     public String getId() {
         return id;
@@ -45,19 +45,19 @@ public class Dept {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(String parentid) {
-        this.parentid = parentid == null ? null : parentid.trim();
-    }
-
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type == null ? null : type.trim();
+    }
+
+    public String getParentid() {
+        return parentid;
+    }
+
+    public void setParentid(String parentid) {
+        this.parentid = parentid == null ? null : parentid.trim();
     }
 }

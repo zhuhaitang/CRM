@@ -13,7 +13,5 @@ public interface ModuleMapper {
 
     int updateByPrimaryKeySelective(Module record);
 
-    int updateByPrimaryKeyWithBLOBs(Module record);
-
     int updateByPrimaryKey(Module record);
 }

@@ -6,13 +6,13 @@
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="deleteFlag" property="deleteflag" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="parentId" property="parentid" jdbcType="VARCHAR" />
-    <result column="state" property="state" jdbcType="VARCHAR" />
-    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, code, deleteFlag, name, type, parentId, state, remarks
+    id, code, deleteFlag, name, remarks, state, type, parentId
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -26,11 +26,11 @@
   </delete>
   <insert id="insert" parameterType="com.crm.system.model.Dict" >
     insert into qt_sys_dict (id, code, deleteFlag, 
-      name, type, parentId, 
-      state, remarks)
+      name, remarks, state, 
+      type, parentId)
     values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{deleteflag,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, 
-      #{state,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR})
+      #{name,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.crm.system.model.Dict" >
     insert into qt_sys_dict
@@ -47,17 +47,17 @@
       <if test="name != null" >
         name,
       </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
       <if test="type != null" >
         type,
       </if>
       <if test="parentid != null" >
         parentId,
-      </if>
-      <if test="state != null" >
-        state,
-      </if>
-      <if test="remarks != null" >
-        remarks,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -73,17 +73,17 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
       <if test="type != null" >
         #{type,jdbcType=VARCHAR},
       </if>
       <if test="parentid != null" >
         #{parentid,jdbcType=VARCHAR},
-      </if>
-      <if test="state != null" >
-        #{state,jdbcType=VARCHAR},
-      </if>
-      <if test="remarks != null" >
-        #{remarks,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -99,17 +99,17 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
       <if test="type != null" >
         type = #{type,jdbcType=VARCHAR},
       </if>
       <if test="parentid != null" >
         parentId = #{parentid,jdbcType=VARCHAR},
-      </if>
-      <if test="state != null" >
-        state = #{state,jdbcType=VARCHAR},
-      </if>
-      <if test="remarks != null" >
-        remarks = #{remarks,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -119,10 +119,10 @@
     set code = #{code,jdbcType=VARCHAR},
       deleteFlag = #{deleteflag,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
-      parentId = #{parentid,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
-      remarks = #{remarks,jdbcType=VARCHAR}
+      type = #{type,jdbcType=VARCHAR},
+      parentId = #{parentid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

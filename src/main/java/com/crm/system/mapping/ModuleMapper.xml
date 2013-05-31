@@ -6,25 +6,16 @@
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="showable" property="showable" jdbcType="VARCHAR" />
-    <result column="parentId" property="parentid" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
-    <result column="sequence" property="sequence" jdbcType="VARCHAR" />
-    <result column="userType" property="usertype" jdbcType="VARCHAR" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.crm.system.model.Module" extends="BaseResultMap" >
-    <result column="url" property="url" jdbcType="LONGVARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="parentId" property="parentid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, code, name, showable, parentId, type, sequence, userType
+    id, code, name, showable, type, url, parentId
   </sql>
-  <sql id="Blob_Column_List" >
-    url
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from qt_sys_module
     where id = #{id,jdbcType=VARCHAR}
   </select>
@@ -34,13 +25,11 @@
   </delete>
   <insert id="insert" parameterType="com.crm.system.model.Module" >
     insert into qt_sys_module (id, code, name, 
-      showable, parentId, type, 
-      sequence, userType, url
-      )
+      showable, type, url, 
+      parentId)
     values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{showable,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{sequence,jdbcType=VARCHAR}, #{usertype,jdbcType=VARCHAR}, #{url,jdbcType=LONGVARCHAR}
-      )
+      #{showable,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{parentid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.crm.system.model.Module" >
     insert into qt_sys_module
@@ -57,20 +46,14 @@
       <if test="showable != null" >
         showable,
       </if>
-      <if test="parentid != null" >
-        parentId,
-      </if>
       <if test="type != null" >
         type,
       </if>
-      <if test="sequence != null" >
-        sequence,
-      </if>
-      <if test="usertype != null" >
-        userType,
-      </if>
       <if test="url != null" >
         url,
+      </if>
+      <if test="parentid != null" >
+        parentId,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -86,20 +69,14 @@
       <if test="showable != null" >
         #{showable,jdbcType=VARCHAR},
       </if>
-      <if test="parentid != null" >
-        #{parentid,jdbcType=VARCHAR},
-      </if>
       <if test="type != null" >
         #{type,jdbcType=VARCHAR},
       </if>
-      <if test="sequence != null" >
-        #{sequence,jdbcType=VARCHAR},
-      </if>
-      <if test="usertype != null" >
-        #{usertype,jdbcType=VARCHAR},
-      </if>
       <if test="url != null" >
-        #{url,jdbcType=LONGVARCHAR},
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -115,34 +92,16 @@
       <if test="showable != null" >
         showable = #{showable,jdbcType=VARCHAR},
       </if>
-      <if test="parentid != null" >
-        parentId = #{parentid,jdbcType=VARCHAR},
-      </if>
       <if test="type != null" >
         type = #{type,jdbcType=VARCHAR},
       </if>
-      <if test="sequence != null" >
-        sequence = #{sequence,jdbcType=VARCHAR},
-      </if>
-      <if test="usertype != null" >
-        userType = #{usertype,jdbcType=VARCHAR},
-      </if>
       <if test="url != null" >
-        url = #{url,jdbcType=LONGVARCHAR},
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null" >
+        parentId = #{parentid,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.crm.system.model.Module" >
-    update qt_sys_module
-    set code = #{code,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      showable = #{showable,jdbcType=VARCHAR},
-      parentId = #{parentid,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
-      sequence = #{sequence,jdbcType=VARCHAR},
-      userType = #{usertype,jdbcType=VARCHAR},
-      url = #{url,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.crm.system.model.Module" >
@@ -150,10 +109,9 @@
     set code = #{code,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
       showable = #{showable,jdbcType=VARCHAR},
-      parentId = #{parentid,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
-      sequence = #{sequence,jdbcType=VARCHAR},
-      userType = #{usertype,jdbcType=VARCHAR}
+      url = #{url,jdbcType=VARCHAR},
+      parentId = #{parentid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

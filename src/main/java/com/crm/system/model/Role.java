@@ -7,8 +7,6 @@ public class Role {
 
     private String useable;
 
-    private String remarks;
-
     public String getId() {
         return id;
     }
@@ -31,13 +29,5 @@ public class Role {
 
     public void setUseable(String useable) {
         this.useable = useable == null ? null : useable.trim();
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks == null ? null : remarks.trim();
     }
 }

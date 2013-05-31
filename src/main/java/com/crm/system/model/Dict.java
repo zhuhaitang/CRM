@@ -9,13 +9,13 @@ public class Dict {
 
     private String name;
 
-    private String type;
-
-    private String parentid;
+    private String remarks;
 
     private String state;
 
-    private String remarks;
+    private String type;
+
+    private String parentid;
 
     public String getId() {
         return id;
@@ -49,6 +49,22 @@ public class Dict {
         this.name = name == null ? null : name.trim();
     }
 
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks == null ? null : remarks.trim();
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state == null ? null : state.trim();
+    }
+
     public String getType() {
         return type;
     }
@@ -63,21 +79,5 @@ public class Dict {
 
     public void setParentid(String parentid) {
         this.parentid = parentid == null ? null : parentid.trim();
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state == null ? null : state.trim();
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks == null ? null : remarks.trim();
     }
 }

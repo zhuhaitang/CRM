@@ -5,10 +5,9 @@
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="useable" property="useable" jdbcType="VARCHAR" />
-    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, useable, remarks
+    id, name, useable
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -21,10 +20,10 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.crm.system.model.Role" >
-    insert into qt_sys_role (id, name, useable, 
-      remarks)
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{useable,jdbcType=VARCHAR}, 
-      #{remarks,jdbcType=VARCHAR})
+    insert into qt_sys_role (id, name, useable
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{useable,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.crm.system.model.Role" >
     insert into qt_sys_role
@@ -38,9 +37,6 @@
       <if test="useable != null" >
         useable,
       </if>
-      <if test="remarks != null" >
-        remarks,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -51,9 +47,6 @@
       </if>
       <if test="useable != null" >
         #{useable,jdbcType=VARCHAR},
-      </if>
-      <if test="remarks != null" >
-        #{remarks,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -66,17 +59,13 @@
       <if test="useable != null" >
         useable = #{useable,jdbcType=VARCHAR},
       </if>
-      <if test="remarks != null" >
-        remarks = #{remarks,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.crm.system.model.Role" >
     update qt_sys_role
     set name = #{name,jdbcType=VARCHAR},
-      useable = #{useable,jdbcType=VARCHAR},
-      remarks = #{remarks,jdbcType=VARCHAR}
+      useable = #{useable,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -1,7 +1,5 @@
 package com.crm.system.model;
 
-import java.util.Date;
-
 public class User {
     private String id;
 
@@ -18,28 +16,6 @@ public class User {
     private String state;
 
     private String deptId;
-
-    private String address;
-
-    private String bz;
-
-    private String cartype;
-
-    private String jdbh;
-
-    private String jxdm;
-
-    private String jxmc;
-
-    private String lxfs;
-
-    private String usertype;
-
-    private Date zcrq;
-
-    private String zjhm;
-
-    private String zjlx;
 
     public String getId() {
         return id;
@@ -103,93 +79,5 @@ public class User {
 
     public void setDeptId(String deptId) {
         this.deptId = deptId == null ? null : deptId.trim();
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
-
-    public String getBz() {
-        return bz;
-    }
-
-    public void setBz(String bz) {
-        this.bz = bz == null ? null : bz.trim();
-    }
-
-    public String getCartype() {
-        return cartype;
-    }
-
-    public void setCartype(String cartype) {
-        this.cartype = cartype == null ? null : cartype.trim();
-    }
-
-    public String getJdbh() {
-        return jdbh;
-    }
-
-    public void setJdbh(String jdbh) {
-        this.jdbh = jdbh == null ? null : jdbh.trim();
-    }
-
-    public String getJxdm() {
-        return jxdm;
-    }
-
-    public void setJxdm(String jxdm) {
-        this.jxdm = jxdm == null ? null : jxdm.trim();
-    }
-
-    public String getJxmc() {
-        return jxmc;
-    }
-
-    public void setJxmc(String jxmc) {
-        this.jxmc = jxmc == null ? null : jxmc.trim();
-    }
-
-    public String getLxfs() {
-        return lxfs;
-    }
-
-    public void setLxfs(String lxfs) {
-        this.lxfs = lxfs == null ? null : lxfs.trim();
-    }
-
-    public String getUsertype() {
-        return usertype;
-    }
-
-    public void setUsertype(String usertype) {
-        this.usertype = usertype == null ? null : usertype.trim();
-    }
-
-    public Date getZcrq() {
-        return zcrq;
-    }
-
-    public void setZcrq(Date zcrq) {
-        this.zcrq = zcrq;
-    }
-
-    public String getZjhm() {
-        return zjhm;
-    }
-
-    public void setZjhm(String zjhm) {
-        this.zjhm = zjhm == null ? null : zjhm.trim();
-    }
-
-    public String getZjlx() {
-        return zjlx;
-    }
-
-    public void setZjlx(String zjlx) {
-        this.zjlx = zjlx == null ? null : zjlx.trim();
     }
 }
