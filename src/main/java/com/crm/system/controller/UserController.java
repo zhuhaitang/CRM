@@ -29,7 +29,7 @@ public class UserController {
 	 */
 	@RequestMapping("/getUserById/{id}")
 	public ModelAndView getUserById(ModelMap modelMap,@PathVariable String id) {
-		modelMap.put("user", userService.getUserById(id));
+		//modelMap.put("user", userService.getUserById(id));
 		return new ModelAndView(UserConstans.LIST_USER, modelMap);
 	}
 }

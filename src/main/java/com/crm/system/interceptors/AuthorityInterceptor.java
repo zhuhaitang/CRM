@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.crm.system.httpModel.model.User;
+
 public class AuthorityInterceptor extends HandlerInterceptorAdapter{
 	
 	/**
@@ -25,5 +27,28 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter{
 		modelAndView.getModel().put("path", request.getContextPath());
 	}
 
-	
+	/**
+	 * 在调用controller具体方法前拦截
+	 */
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object object) throws Exception {
+		String requestPath = request.getServletPath();
+		if(requestPath.indexOf("Controller")!=-1){
+			if(requestPath.equals("/loginController/validate")){
+				return true;
+			}
+			if(requestPath.equals("/loginController/login")){
+				return true;
+			}
+			User user = (User) request.getSession().getAttribute("userInfo");
+			if(user!=null){
+				return true;
+			}else{
+				request.getRequestDispatcher("/loginController/init").forward(request, response);
+				return false;
+			}
+		}else{
+			return true;
+		}
+	}
 }

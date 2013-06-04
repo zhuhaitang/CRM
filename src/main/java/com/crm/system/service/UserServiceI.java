@@ -1,6 +1,7 @@
 package com.crm.system.service;
 
-import com.crm.system.model.User;
+import java.util.HashMap;
+import com.crm.system.httpModel.model.User;
 
 /**
  * 用户信息service
@@ -8,10 +9,11 @@ import com.crm.system.model.User;
  *
  */
 public interface UserServiceI {
+	
 	/**
-	 * 根据id查询用户信息
-	 * @param id
+	 * 根据用户名和密码查询用户信息
+	 * @param map
 	 * @return
 	 */
-	public User getUserById(String id);
+	public User getUserByNameAndPassword(HashMap map);
 }
