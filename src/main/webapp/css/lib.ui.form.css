@@ -1,0 +1,132 @@
+@CHARSET "UTF-8";
+
+/* ====================== form表格的样式 ====================== */
+.form {
+	position: absolute;
+	background-color: #FFFFFF;
+	padding: 5px;
+	width: 100%;
+	height: 100%;
+}
+
+.form-group {
+  height: 26px;
+  line-height: 27px;
+  padding-left: 10px;
+	background: url('../image/form-group.jpg') repeat-x center center;
+  font-weight: 700;
+  color: #314A92;
+  border-top: 1px solid #FFFFFF;
+}
+
+.form-line {
+	position: relative;
+	margin: 0px auto;
+	height: 30px;	
+}
+
+.form-line .form-label,
+.form-line .form-input,
+.form-line .form-input-merge {
+	position: relative;
+	float: left;
+	vertical-align: middle;
+	margin-right: 1px;
+}
+
+.form-line .form-label {
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	font-weight: bold;
+	padding-right: 5px;
+	width: 80px;
+/* 	background-color: #D4E3F4; */
+	background-color: #E1E1E1;
+	border-right: 1px solid #8EB2E2;
+}
+
+.form-line .form-input {
+	height: 30px;
+	line-height: 30px;
+	text-align: left;
+	padding-left: 5px;
+	width: 140px;
+/* 	background-color: #E1E1E1; */
+	white-space: normal;
+}
+
+.form-line .form-label .form-necessary {
+	color: #CD0A0A;
+	padding-right: 5px;
+}
+
+.form-line .form-label-over {
+	color: #FFFFFF;
+	background-color: #4F98F6;
+}
+
+.form-line .form-input-over {
+	background-color: #4F98F6;
+}
+
+.form-line .merge-normal,
+.merge-normal {
+	height: 90px;
+}
+
+.form-line .merge-large,
+.merge-large {
+	height: 90px;
+	width: 393px;
+}
+
+/* ====================== form控件的样式 ====================== */
+
+.text {
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+	border: 1px solid #8EB2E2;
+	padding: 2px;
+	margin-top: 3px;
+	*margin-top: 2px !important;
+}
+
+.textarea {
+	border: 1px solid #8EB2E2;
+	padding: 2px;
+	margin-top: 3px;
+	*margin-top: 2px !important;
+}
+
+.textarea-merge-normal {
+	width:133px;
+	height:75px;
+}
+
+.textarea-merge-large {
+	width:376px;
+	height:75px;
+}
+
+.select {
+	border: 1px solid #8EB2E2;
+	margin-top: 4px;
+	width: 138px;
+}
+
+.warn {
+	border: 1px solid #CD0A0A;
+	background-color: #FEF6F3;
+}
+
+.easyui-validatebox {
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+	border: 1px solid #8EB2E2;
+	padding: 2px;
+	margin-top: 3px;
+	*margin-top: 2px !important;
+}

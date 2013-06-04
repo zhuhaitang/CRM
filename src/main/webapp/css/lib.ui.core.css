@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+
+html,body{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+iframe{
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+
+img,body,html{
+	border:0; 
+	padding:0;
+}
+
+html,body,div,
+dl,dt,dd,ul,ol,li,
+h1,h2,h3,h4,h5,h6,
+pre,form,fieldset,input,select,
+p,blockquote,table,tr,th,td{
+	margin:0;
+	padding:0;
+	font-family:'微软雅黑','Courier New';
+	font-size:12px;
+}
+
+img{
+	vertical-align:middle;
+}
+
+	
