@@ -1,0 +1,15 @@
+ <form method="post">
+	<table class="info">
+		<tr class="form-line">
+			<td class="form-label">部门名称</td>
+			<td>
+				<input type="text" name="name" class="easyui-validatebox" data-options="required:true" id="name"/>
+			</td>
+			<td class="form-label">上级部门</td>
+			<td>
+				<input type="text" name="parentId" class="easyui-combotree" data-options="url:'${path}/dept/findTree',required:true" id="parent"/>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="id">
+</form>

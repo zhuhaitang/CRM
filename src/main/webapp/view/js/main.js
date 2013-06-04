@@ -2,22 +2,22 @@ var tabsMenu;
 var centerTabs;
 $(function(){
 	$("#bmgl").bind("click",function(){
-		addTab("部门管理",sy.pn()+"/dept/initDept.do");
+		addTab("部门管理",sy.pn()+"/deptController/initDept");
 	});
 	$("#mkgl").bind("click",function(){
-		addTab("模块管理",sy.pn()+"/module/initModule.do");
+		addTab("模块管理",sy.pn()+"/moduleController/initModule");
 	});
 	$("#rygl").bind("click",function(){
-		addTab("人员管理",sy.pn()+"/user/initUser.do");
+		addTab("人员管理",sy.pn()+"/userController/initUser");
 	});
 	$("#czgl").bind("click",function(){
-		addTab("操作管理",sy.pn()+"/operate/initOperate.do");
+		addTab("操作管理",sy.pn()+"/operateController/initOperate");
 	});
 	$("#jsgl").bind("click",function(){
-		addTab("角色管理",sy.pn()+"/role/initRole.do");
+		addTab("角色管理",sy.pn()+"/roleController/initRole");
 	});
 	$("#zdsj").bind("click",function(){
-		addTab("字典数据",sy.pn()+"/dict/initDict.do");
+		addTab("字典数据",sy.pn()+"/dictController/initDict");
 	});
 	tabsMenu = $('#tabsMenu').menu({
 		onClick : function(item) {

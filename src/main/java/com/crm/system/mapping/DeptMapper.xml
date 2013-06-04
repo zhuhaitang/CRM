@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DeptMapper" >
+  
+  <sql id="Base_Column_List" >
+    id, code, deleteFlag, name, type, parentId
+  </sql>
+  <!-- 查询部门信息 -->
+  <select id="selectDeptForManage" resultType="java.util.Map" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from qt_sys_dept
+    where 1=1 and deleteFlag='F'
+    <if test="id != null">
+    	and id=#{id}
+    </if>
+    <if test="parentId != null">
+    	and parentId=#{parentId}
+    </if>
+  </select>
+  <!-- 部门信息总行数 -->
+  <select id="selectDeptForCount" resultType="java.lang.Long" parameterType="java.util.Map" >
+    select 
+    count(*)
+    from qt_sys_dept
+    where 1=1 and deleteFlag='F'
+  </select>
+  
+</mapper>

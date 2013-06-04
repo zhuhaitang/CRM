@@ -29,4 +29,11 @@ public class UserTestService {
 		User u = userService.getUserByNameAndPassword(map);
 		logger.info(JSON.toJSONStringWithDateFormat(u, "yyyy-MM-dd HH:mm:ss"));
 	}
+	
+	@Test
+	public void test2() throws SQLException {
+		HashMap map = new HashMap();
+		User u = userService.getUserByNameAndPassword(map);
+		logger.info(JSON.toJSONStringWithDateFormat(u, "yyyy-MM-dd HH:mm:ss"));
+	}
 }

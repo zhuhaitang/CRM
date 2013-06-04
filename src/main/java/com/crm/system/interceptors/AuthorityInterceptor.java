@@ -44,7 +44,7 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter{
 			if(user!=null){
 				return true;
 			}else{
-				request.getRequestDispatcher("/loginController/init").forward(request, response);
+				request.getRequestDispatcher("/loginController/login").forward(request, response);
 				return false;
 			}
 		}else{
