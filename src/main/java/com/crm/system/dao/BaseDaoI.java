@@ -42,12 +42,14 @@ public interface BaseDaoI {
 	 * @param SQL语句ID号
 	 * @param parameterObject 查询条件对象(map javaBean)
 	 */
+	@SuppressWarnings("rawtypes")
 	public List queryForList(String statementName, Object parameterObject);
 	
 	/**
 	 * 查询记录集合
 	 * @param SQL语句ID号
 	 */
+	@SuppressWarnings("rawtypes")
 	public List queryForList(String statementName);
 	
 	/**
@@ -57,6 +59,7 @@ public interface BaseDaoI {
 	 * @param parameterObject
 	 *            查询条件对象(map javaBean)
 	 */
+	@SuppressWarnings("rawtypes")
 	public List queryForPage(String statementName,Object parameterObject,Page page) throws SQLException;
 	
 	/**

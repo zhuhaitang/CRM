@@ -2,8 +2,6 @@ package com.crm.system.dao.impl;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.session.RowBounds;
 import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -15,6 +13,7 @@ import com.crm.system.httpModel.base.Page;
 
 @Repository("BaseDao")
 public class BaseDaoImpl implements BaseDaoI{
+	@SuppressWarnings("unused")
 	private static final Logger log = Logger.getLogger(BaseDaoImpl.class);
 	@Autowired  
 	private SqlSessionTemplate sqlSessionTemplate; 
@@ -66,6 +65,7 @@ public class BaseDaoImpl implements BaseDaoI{
 	 * @param parameterObject
 	 *            查询条件对象(map javaBean)
 	 */
+	@SuppressWarnings("rawtypes")
 	public List queryForList(String statementName, Object parameterObject) {
 		return sqlSessionTemplate.selectList(statementName, parameterObject);
 	}
@@ -75,6 +75,7 @@ public class BaseDaoImpl implements BaseDaoI{
 	 * 
 	 * @param SQL语句ID号
 	 */
+	@SuppressWarnings("rawtypes")
 	public List queryForList(String statementName) {
 		return sqlSessionTemplate.selectList(statementName);
 	}
@@ -87,6 +88,7 @@ public class BaseDaoImpl implements BaseDaoI{
 	 *            查询条件对象(map javaBean)
 	 * @throws SQLException 
 	 */
+	@SuppressWarnings("rawtypes")
 	public List queryForPage(String statementName, Object parameterObject,Page page) throws SQLException {
 		return sqlSessionTemplate.selectList(statementName, parameterObject,new RowBounds((page.getPage() - 1) * page.getRows(),page.getRows()));
 	}

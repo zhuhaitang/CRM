@@ -3,7 +3,12 @@
 <mapper namespace="DeptMapper" >
   
   <sql id="Base_Column_List" >
-    id, code, deleteFlag, name, type, parentId
+    id, <!--  主键 -->
+    code, <!-- 部门编号 -->
+    deleteFlag,<!-- 是否已删除 -->
+    name, <!-- 部门名称 -->
+    type, <!-- 是否允许删除-->
+    parentId<!-- 上级部门主键 -->
   </sql>
   <!-- 查询部门信息 -->
   <select id="selectDeptForManage" resultType="java.util.Map" parameterType="java.util.Map" >
@@ -14,8 +19,32 @@
     <if test="id != null">
     	and id=#{id}
     </if>
+     <if test="code != null">
+    	and code=#{code}
+    </if>
+     <if test="deleteFlag != null">
+    	and deleteFlag=#{deleteFlag}
+    </if>
+     <if test="name != null">
+    	and name=#{name}
+    </if>
+     <if test="type != null">
+    	and type=#{type}
+    </if>
     <if test="parentId != null">
     	and parentId=#{parentId}
+    </if>
+    <if test="likeCode != null">
+    	and code like '%${likeCode}%'
+    </if>
+    <if test="query != null">
+    	and code like '%${query}%' or name like '%${query}%'
+    </if>
+    <if test="sort !=null and order != null">
+    	order by ${sort} ${order}
+    </if>
+     <if test="sort==null and order==null">
+    	order by code asc
     </if>
   </select>
   <!-- 部门信息总行数 -->
@@ -24,6 +53,104 @@
     count(*)
     from qt_sys_dept
     where 1=1 and deleteFlag='F'
+    <if test="id != null">
+    	and id=#{id}
+    </if>
+     <if test="code != null">
+    	and code=#{code}
+    </if>
+     <if test="deleteFlag != null">
+    	and deleteFlag=#{deleteFlag}
+    </if>
+     <if test="name != null">
+    	and name=#{name}
+    </if>
+     <if test="type != null">
+    	and type=#{type}
+    </if>
+    <if test="parentId != null">
+    	and parentId=#{parentId}
+    </if>
+     <if test="likeCode != null">
+    	and code like '%${likeCode}%'
+    </if>
+    <if test="query != null">
+    	and code like '%${query}%' or name like '%${query}%'
+    </if>
   </select>
-  
+  <!-- 查询最大编号 -->
+  <select id="selectCodeByParentId" resultType="java.lang.String" parameterType="java.lang.String">
+  	select max(code) from qt_sys_dept where parentId=#{parentId}
+  </select>
+  <!-- 添加部门信息 -->
+  <insert id="insertSelective" parameterType="java.util.Map" >
+    insert into qt_sys_dept
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="deleteFlag != null" >
+        deleteFlag,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="parentId != null" >
+        parentId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="code != null" >
+        #{code},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="type != null" >
+        #{type},
+      </if>
+      <if test="parentId != null" >
+        #{parentId},
+      </if>
+    </trim>
+  </insert>
+  <!-- 修改部门信息 -->
+  <update id="updateByPrimaryKeySelective" parameterType="java.util.Map" >
+    update qt_sys_dept
+    <set >
+      <if test="code != null" >
+        code = #{code},
+      </if>
+      <if test="deleteFlag != null" >
+        deleteFlag = #{deleteFlag},
+      </if>
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="type != null" >
+        type = #{type},
+      </if>
+      <if test="parentid != null" >
+        parentId = #{parentId},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+ <!--   删除部门信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from qt_sys_dept
+    where id = #{id}
+  </delete>
 </mapper>

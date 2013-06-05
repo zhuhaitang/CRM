@@ -1,13 +1,13 @@
 var datagrid;
 var tree;
-var parentId="";
+var code="";
 
 $(function(){
 	tree=$('#deptTree').tree({   
 	    url:sy.pn()+'/deptController/findTree',
 	    onClick: function(node){
-	    	parentId=node.id;
-	    	datagrid.datagrid('load', {id:parentId});
+	    	code=node.attributes.code;
+	    	datagrid.datagrid('load', {likeCode:code});
 		}
 	});  
 
@@ -114,11 +114,16 @@ function form(p,url){
 			return form.form('validate');
 		},
 		success:function(data){
-			var data = eval('(' + data + ')');
+			var message=$.parseJSON(data);
 			datagrid.datagrid('reload');
 			tree.tree('reload');
 			p.dialog('close');
-			parent.sy.showMessage(data.msg);
+			if(message.success){
+				parent.sy.showMessage("操作成功");
+			}else{
+				parent.sy.showMessage("操作失败");
+			}
+			
 		}
 	});
 }
@@ -154,7 +159,11 @@ function deletes(){
 	    				success: function(data){
 	    					datagrid.datagrid('reload');
 	    					tree.tree('reload');
-	    					parent.sy.showMessage(data.msg);
+	    					if(data.success){
+	    						parent.sy.showMessage("操作成功");
+	    					}else{
+	    						parent.sy.showMessage("操作失败");
+	    					}
 	    				}
 	    			});
 				}

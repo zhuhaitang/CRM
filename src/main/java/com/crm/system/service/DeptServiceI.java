@@ -22,4 +22,21 @@ public interface DeptServiceI {
 	 * @return
 	 */
 	public List<TreeNode> findTree(HashMap map);
+	/**
+	 * 保存部门信息
+	 * @param Map
+	 * @throws Exception
+	 */
+	public void save(HashMap map) throws Exception;
+	/**
+	 * 修改部门信息
+	 * @param map
+	 */
+	public void update(HashMap map)throws Exception;
+	/**
+	 * 删除部门信息
+	 * @param id
+	 * @throws Exception
+	 */
+	public void delete(String id)throws Exception;
 }
