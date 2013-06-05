@@ -1,13 +1,12 @@
 var datagrid;
 var tree;
-var code="";
-
+var parentId="";
 $(function(){
 	tree=$('#deptTree').tree({   
 	    url:sy.pn()+'/deptController/findTree',
 	    onClick: function(node){
-	    	code=node.attributes.code;
-	    	datagrid.datagrid('load', {likeCode:code});
+	    	parentId=node.id;
+	    	datagrid.datagrid('load', {likeCode:node.attributes.code});
 		}
 	});  
 
