@@ -1,11 +1,11 @@
 package com.crm.system.service.impl;
 
-import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.crm.system.dao.BaseDaoI;
 import com.crm.system.httpModel.model.User;
 import com.crm.system.service.UserServiceI;
+import com.crm.system.util.Dto;
 
 /**
  * 用户信息service
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserServiceI {
 	 * @param map
 	 * @return
 	 */
-	public User getUserByNameAndPassword(HashMap map) {
-		return (User)baseDao.queryForObject("UserMapper.selectByNameAndPassword", map);
+	public User getUserByNameAndPassword(Dto dto) {
+		return (User)baseDao.queryForObject("UserMapper.selectByNameAndPassword", dto);
 	}
 }

@@ -143,8 +143,9 @@ function deletes(){
 	if(node.length>0){
 		var chkValue = [];
 		for(var i=0; i<node.length; i++){
-			chkValue.push(node[i].id);
+			chkValue.push(node[i].code);
 		}
+		alert(chkValue.join(","));
 		parent.sy.messagerConfirm(
 			'请确认', 
 			'<span style="color:red"><b>提示:</b></span><br><span style="color:red">将同时删除下属人员和角色以及权限信息.</span><br>继续删除吗?', 
@@ -153,7 +154,7 @@ function deletes(){
 	    			$.ajax({
 	    				type: "POST",
 	    				url: sy.pn()+'/deptController/delete',
-	    				data:'ids='+chkValue.join(","),
+	    				data:'codes='+chkValue.join(","),
 	    				dataType: "json",
 	    				success: function(data){
 	    					datagrid.datagrid('reload');

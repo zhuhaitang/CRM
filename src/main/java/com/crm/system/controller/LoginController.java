@@ -1,6 +1,5 @@
 package com.crm.system.controller;
 
-import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,7 +15,9 @@ import com.crm.system.constans.LoginConstans;
 import com.crm.system.httpModel.base.Message;
 import com.crm.system.httpModel.model.User;
 import com.crm.system.service.UserServiceI;
+import com.crm.system.util.Dto;
 import com.crm.system.util.MD5;
+import com.crm.system.util.impl.BaseDto;
 
 /**
  * 用户登录控制层
@@ -44,17 +45,17 @@ public class LoginController {
 	 * @param modelMap
 	 * @return
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked"})
-	@RequestMapping("/validate")
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="/validate")
 	@ResponseBody
 	public Message validate(ModelMap modelMap,HttpServletRequest request,HttpSession session){
 		boolean success = false;
-		HashMap map =new HashMap();
+		Dto dto =new BaseDto();
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
-		map.put("account", account);
-		map.put("password",MD5.md5(password));
-		User user = userService.getUserByNameAndPassword(map);
+		dto.put("account", account);
+		dto.put("password",MD5.md5(password));
+		User user = userService.getUserByNameAndPassword(dto);
 		if(user!=null){
 			session.setAttribute("userInfo", user);
 			success=true;

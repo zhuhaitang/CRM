@@ -11,7 +11,7 @@
     parentId<!-- 上级部门主键 -->
   </sql>
   <!-- 查询部门信息 -->
-  <select id="selectDeptForManage" resultType="java.util.Map" parameterType="java.util.Map" >
+  <select id="selectDeptForManage" resultType="com.crm.system.util.impl.BaseDto" parameterType="java.util.Map" >
     select 
     <include refid="Base_Column_List" />
     from qt_sys_dept
@@ -35,7 +35,7 @@
     	and parentId=#{parentId}
     </if>
     <if test="likeCode != null">
-    	and code like '%${likeCode}%'
+    	and code like '${likeCode}%'
     </if>
     <if test="query != null">
     	and code like '%${query}%' or name like '%${query}%'
@@ -149,8 +149,8 @@
     where id = #{id}
   </update>
  <!--   删除部门信息 -->
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.util.Map" >
     delete from qt_sys_dept
-    where id = #{id}
+    where code like '${code}%'
   </delete>
 </mapper>

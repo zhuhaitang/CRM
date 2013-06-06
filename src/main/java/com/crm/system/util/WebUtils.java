@@ -1,11 +1,11 @@
 package com.crm.system.util;
 
-
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
+import com.crm.system.util.impl.BaseDto;
 
 /**
  * Web层相关的实用工具类
@@ -24,16 +24,15 @@ public class WebUtils {
 	 * @param request
 	 * @return
 	 */
-	@SuppressWarnings("rawtypes")
-	public static HashMap<String, String> getPraramsAsMap(HttpServletRequest request) {
-		HashMap<String, String> hashMap = new HashMap<String, String>();
+	public static Dto getPraramsAsMap(HttpServletRequest request) {
+		Dto dto = new BaseDto();
 		Map map = request.getParameterMap();
 		Iterator keyIterator = (Iterator) map.keySet().iterator();
 		while (keyIterator.hasNext()) {
 			String key = (String) keyIterator.next();
 			String value = ((String[]) (map.get(key)))[0];
-			hashMap.put(key, value);
+			dto.put(key, value);
 		}
-		return hashMap;
+		return dto;
 	}
 }

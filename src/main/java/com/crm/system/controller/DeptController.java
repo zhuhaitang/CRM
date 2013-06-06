@@ -130,10 +130,10 @@ public class DeptController {
 	 */
 	@RequestMapping(value = "/delete")
 	@ResponseBody
-	public Message delete(String ids) throws Exception{
+	public Message delete(String codes) throws Exception{
 		Message m = new Message();
 		try {
-			deptService.delete(ids);
+			deptService.delete(codes);
 			m.setSuccess(true);
 		} catch (Exception e) {
 			logger.error(ExceptionUtil.getExceptionMessage(e));
