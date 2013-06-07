@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.crm.dto.Dto;
+import com.crm.dto.impl.BaseDto;
 import com.crm.system.constans.LoginConstans;
 import com.crm.system.httpModel.base.Message;
 import com.crm.system.httpModel.model.User;
 import com.crm.system.service.UserServiceI;
-import com.crm.system.util.Dto;
 import com.crm.system.util.MD5;
-import com.crm.system.util.impl.BaseDto;
 
 /**
  * 用户登录控制层
@@ -57,7 +58,7 @@ public class LoginController {
 		dto.put("password",MD5.md5(password));
 		User user = userService.getUserByNameAndPassword(dto);
 		if(user!=null){
-			session.setAttribute("userInfo", user);
+			session.setAttribute(LoginConstans.USER_INFO, user);
 			success=true;
 		}
 		return new Message("",success);

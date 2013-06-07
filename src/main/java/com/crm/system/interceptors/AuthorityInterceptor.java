@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.crm.system.constans.LoginConstans;
 import com.crm.system.httpModel.model.User;
 
 public class AuthorityInterceptor extends HandlerInterceptorAdapter{
@@ -40,7 +41,7 @@ public class AuthorityInterceptor extends HandlerInterceptorAdapter{
 			if(requestPath.equals("/loginController/login")){
 				return true;
 			}
-			User user = (User) request.getSession().getAttribute("userInfo");
+			User user = (User) request.getSession().getAttribute(LoginConstans.USER_INFO);
 			if(user!=null){
 				return true;
 			}else{

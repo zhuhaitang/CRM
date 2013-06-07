@@ -6,7 +6,7 @@
     id, account, deleteFlag, deptCode, name, password, state, dept_id
   </sql>
   
-  <select id="selectByNameAndPassword" resultType="com.crm.system.httpModel.model.User" parameterType="java.util.Map" >
+  <select id="selectByNameAndPassword" resultType="user" parameterType="java.util.Map" >
     select 
     <include refid="Base_Column_List" />
     from qt_sys_user

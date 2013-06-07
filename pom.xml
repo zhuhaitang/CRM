@@ -89,5 +89,15 @@
 		  <artifactId>freemarker</artifactId>
 		  <version>2.3.19</version>
 		</dependency>
+		<dependency>
+		  <groupId>GbatisDialect</groupId>
+		  <artifactId>GbatisDialect</artifactId>
+		  <version>1.0.1</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.crm.dto</groupId>
+		  <artifactId>Dto</artifactId>
+		  <version>1.0.0</version>
+		</dependency>
   </dependencies>
 </project>
