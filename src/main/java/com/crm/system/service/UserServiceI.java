@@ -1,7 +1,7 @@
 package com.crm.system.service;
 
+import com.crm.dto.Dto;
 import com.crm.system.httpModel.model.User;
-import com.crm.system.util.Dto;
 
 /**
  * 用户信息service

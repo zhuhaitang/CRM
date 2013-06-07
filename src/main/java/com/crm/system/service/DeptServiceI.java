@@ -3,10 +3,10 @@ package com.crm.system.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.crm.dto.Dto;
 import com.crm.system.httpModel.base.Page;
 import com.crm.system.httpModel.base.PageJson;
 import com.crm.system.httpModel.base.TreeNode;
-import com.crm.system.util.Dto;
 
 public interface DeptServiceI {
 	/**

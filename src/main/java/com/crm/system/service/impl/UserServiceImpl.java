@@ -2,10 +2,11 @@ package com.crm.system.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.crm.dto.Dto;
 import com.crm.system.dao.BaseDaoI;
 import com.crm.system.httpModel.model.User;
 import com.crm.system.service.UserServiceI;
-import com.crm.system.util.Dto;
 
 /**
  * 用户信息service

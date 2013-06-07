@@ -2,10 +2,10 @@ package com.crm.system.util;
 
 import java.util.Iterator;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
-import com.crm.system.util.impl.BaseDto;
+import com.crm.dto.Dto;
+import com.crm.dto.impl.BaseDto;
 
 /**
  * Web层相关的实用工具类

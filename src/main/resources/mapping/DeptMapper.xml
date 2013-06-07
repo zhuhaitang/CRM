@@ -11,7 +11,7 @@
     parentId<!-- 上级部门主键 -->
   </sql>
   <!-- 查询部门信息 -->
-  <select id="selectDeptForManage" resultType="com.crm.system.util.impl.BaseDto" parameterType="java.util.Map" >
+  <select id="selectDeptForManage" resultType="dto" parameterType="map" >
     select 
     <include refid="Base_Column_List" />
     from qt_sys_dept
@@ -48,7 +48,7 @@
     </if>
   </select>
   <!-- 部门信息总行数 -->
-  <select id="selectDeptForCount" resultType="java.lang.Long" parameterType="java.util.Map" >
+  <select id="selectDeptForCount" resultType="long" parameterType="map" >
     select 
     count(*)
     from qt_sys_dept
@@ -79,11 +79,11 @@
     </if>
   </select>
   <!-- 查询最大编号 -->
-  <select id="selectCodeByParentId" resultType="java.lang.String" parameterType="java.lang.String">
+  <select id="selectCodeByParentId" resultType="String" parameterType="string">
   	select max(code) from qt_sys_dept where parentId=#{parentId}
   </select>
   <!-- 添加部门信息 -->
-  <insert id="insertSelective" parameterType="java.util.Map" >
+  <insert id="insertSelective" parameterType="map" >
     insert into qt_sys_dept
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -127,7 +127,7 @@
     </trim>
   </insert>
   <!-- 修改部门信息 -->
-  <update id="updateByPrimaryKeySelective" parameterType="java.util.Map" >
+  <update id="updateByPrimaryKeySelective" parameterType="map" >
     update qt_sys_dept
     <set >
       <if test="code != null" >
@@ -149,7 +149,7 @@
     where id = #{id}
   </update>
  <!--   删除部门信息 -->
-  <delete id="deleteByPrimaryKey" parameterType="java.util.Map" >
+  <delete id="deleteByPrimaryKey" parameterType="map" >
     delete from qt_sys_dept
     where code like '${code}%'
   </delete>

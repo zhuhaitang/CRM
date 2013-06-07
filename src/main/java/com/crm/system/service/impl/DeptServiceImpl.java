@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.crm.dto.Dto;
+import com.crm.dto.impl.BaseDto;
 import com.crm.system.constans.StringConstans;
 import com.crm.system.dao.BaseDaoI;
 import com.crm.system.httpModel.base.Page;
@@ -14,8 +16,6 @@ import com.crm.system.httpModel.base.PageJson;
 import com.crm.system.httpModel.base.TreeNode;
 import com.crm.system.service.DeptServiceI;
 import com.crm.system.util.CodeHelper;
-import com.crm.system.util.Dto;
-import com.crm.system.util.impl.BaseDto;
 
 /**
  * 部门信息service

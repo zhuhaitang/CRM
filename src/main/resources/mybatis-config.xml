@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<plugins>
-<!-- 		指定数据库分页方言Dialect, 其它方言:OracleDialect,SQLServerDialect,SybaseDialect,DB2Dialect, -->
-<!-- 		PostgreSQLDialect,MySQLDialect,DerbyDialect,HSQLDialect -->
-		<plugin interceptor="com.crm.system.interceptors.OffsetLimitInterceptor">
-			<property name="dialectClass" value="com.crm.system.interceptors.dialect.MySQLDialect"/>
-		</plugin>
-	</plugins>
+	<!-- value="mssql58|mssql12|oracle|mysql|db2" -->
+    <properties>
+        <property name="dialect" value="mysql" />
+    </properties>
+    
+	<typeAliases>
+		<typeAlias alias="dto" type="com.crm.dto.impl.BaseDto" />
+		<typeAlias alias="user" type="com.crm.system.httpModel.model.User" />
+ 	</typeAliases>
+ 	
+    <plugins>
+        <plugin interceptor="com.crm.system.dialect.PaginationInterceptor" />	
+    </plugins>
 </configuration>
